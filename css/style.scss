@@ -123,8 +123,12 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 				@include flex();
 				height: 100px;
 				@media #{$tablet} {
-					left: 100px;
-					height: 50px;
+					position: absolute;
+					right: 0;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					background-color: #888888;
 
 					> li {
 						padding: 0 20px;
@@ -144,23 +148,31 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 					}
 				}
 				@media #{$mobile} {
-					display: none;
+					display: flex;
 					flex-flow: column nowrap;
 					justify-content: start;
 					align-items: center;
 					position: fixed;
 					left: 0;
+					right: 0;
 					top: 0;
-					width: 100%;
-					height: 100%;
+					bottom: 0;
+					width: initial;
+					height: initial;
 					padding-top: 50px;
 					background-color: #fff;
+					margin-left: 0;
 				}
 				> li {
 					padding: 0 27px;
-
+					@media #{$mobile} {
+						padding: 0;
+					}
 					&:last-child {
 						margin-right: 30px;
+						@media #{$mobile} {
+							margin-right: 0;
+						}
 					}
 					> h2 {
 						width: 100%;
@@ -174,7 +186,7 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 							margin: initial;
 							@include fontset(#000000, 800, 20px);
 							width: 100%;
-							margin-left: -20%;
+							margin-left: 0;
 							opacity: 0.75;
 							transition: opacity 0.2s ease;
 						}
@@ -224,6 +236,10 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 							position: inherit;
 							padding: initial;
 							overflow: auto;
+							right: 0;
+							left: 0;
+							width: 100%;
+							text-align: center;
 						}
 						> ul {
 							@include flex();
@@ -248,8 +264,8 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 									height: initial;
 									margin: initial;
 									border: initial;
-									width: 50%;
-									transform: translate(-40%);
+									width: 100%;
+									transform: initial;
 									// background-color: pink;
 								}
 								&:last-child {
@@ -277,6 +293,8 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 												@include border(#000);
 												border-radius: 20px;
 												@media #{$mobile} {
+													transform: initial;
+													width: initial;
 													border: initial;
 												}
 											}
@@ -303,8 +321,7 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 						@media #{$mobile} {
 							overflow: auto;
 							position: inherit;
-							width: 765px;
-							// text-align: center;
+							width: 100%;
 							padding: initial;
 							background-color: #fff;
 							overflow: auto;
@@ -316,7 +333,8 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 								height: 100%;
 								// height: 100%;
 								margin: inherit;
-								// background-color: #fff;
+								text-align: center;
+
 								overflow: auto;
 							}
 							> ul {
@@ -332,8 +350,8 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 								> li {
 									width: 155px;
 									@media #{$mobile} {
-										width: 50%;
-										margin-left: 10%;
+										width: 100%;
+										margin-left: 0;
 
 										// background-color: pink;
 									}
@@ -504,7 +522,7 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 				> p.toggle {
 					display: block;
 					position: absolute;
-					top: 6px;
+					top: 9px;
 					right: 50px;
 					width: 25px;
 					height: 20px;
@@ -657,8 +675,9 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 				margin-left: -460px;
 				width: 20px;
 				height: 20px;
+				padding: 0 20px;
 				text-indent: -9999px;
-				background-image: url(./../img/btn-play.png);
+				background: url(./../img/btn-play.png)no-repeat;
 				z-index: 900;
 
 				@media #{$mobile} {
@@ -1172,11 +1191,10 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 							left: -12px;
 							width: 20px;
 							height: 20px;
-							background-image: url(./../img/ico-arr-right.png);
-							background-repeat: no-repeat;
+							// background-image: url(./../img/ico-arr-right.png);
+							// background-repeat: no-repeat;
 
 							content: "";
-							// background-color: red;
 						}
 					}
 				}
@@ -1217,7 +1235,7 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 					display: block;
 					background-image: url(./../img/ico-arr-right.png);
 					background-repeat: no-repeat;
-					background-position: 180px center;
+					background-position: 185px center;
 				}
 			} //a
 		} //btn-container
@@ -1247,6 +1265,7 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 				margin-bottom: 40px;
 				@media #{$mobile} {
 					width: 100%;
+					justify-content: center;
 					margin-bottom: 10px;
 				}
 				> li {
@@ -1261,6 +1280,11 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 					}
 					&:first-child {
 						margin-left: 0;
+					}
+					&:last-child > a {
+						@media #{$mobile} {
+							border-right: initial;
+						}
 					}
 				} //li
 			} //.menu ul
@@ -1293,7 +1317,7 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 				top: 30px;
 				@media #{$mobile} {
 					top: 45px;
-					right: 8%;
+					right: 0%;
 				}
 				> #family {
 					appearance: none;
@@ -1325,7 +1349,9 @@ $mobile: "screen and (max-width:"+$width-mobile+")";
 				position: absolute;
 				top: 100px;
 				right: 10%;
-
+				@media #{$mobile} {
+					right: 10px;
+				}
 				> li {
 					margin-left: 15px;
 					&:first-child {
